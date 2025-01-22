@@ -5,7 +5,13 @@
 
 AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션입니다. 이 프로젝트는 [2025년 1월 22일 있었던 AWS Korea User Group의 AI 엔지니어링 모임](https://www.meetup.com/awskrug/events/305372486/?slug=awskrug&eventId=305372486)에서 진행한 발표 내용의 일부로 라이브 코딩을 통해 제작되었습니다.
 
-> 발표 장표: [CDD가 온다](https://bit.ly/3DRyxNA)
+## 📚 프로젝트 문서
+
+- [CDD가 온다](https://bit.ly/3DRyxNA)
+- [설계 문서](doc/design.md) - 프로젝트 아키텍처 및 기술 스택
+- [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
+- [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
+- [보안 규정 준수](doc/compliance.md) - K-ISMS 요구사항 매핑
 
 ## ✨ 주요 기능
 
@@ -132,13 +138,6 @@ cd frontend
 npm install
 npm start
 ```
-
-## 📚 프로젝트 문서
-
-- [설계 문서](doc/design.md) - 프로젝트 아키텍처 및 기술 스택
-- [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
-- [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
-- [보안 규정 준수](doc/compliance.md) - K-ISMS 요구사항 매핑
 
 ## 🌳 브랜치 관리
 
