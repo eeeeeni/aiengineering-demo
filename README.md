@@ -7,7 +7,7 @@ AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션�
 
 ## 📚 프로젝트 문서
 
-- [CDD가 온다](https://bit.ly/3DRyxNA)
+- [발표장표: CDD가 온다](https://bit.ly/3DRyxNA)
 - [설계 문서](doc/design.md) - 프로젝트 아키텍처 및 기술 스택
 - [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
 - [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
