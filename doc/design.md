@@ -11,6 +11,49 @@
   - TypeScript
   - Material-UI (디자인 시스템)
   - GitHub Pages (호스팅)
+  - Vite (빌드 도구)
+  - TanStack Query (상태 관리)
+
+### 2.2 프론트엔드 구현 상세
+
+#### 기술 스택
+- React + TypeScript
+- Vite (빌드 도구)
+- Material-UI (UI 컴포넌트)
+- TanStack Query (상태 관리)
+
+#### 디렉토리 구조
+```
+frontend/
+├── src/
+│   ├── components/     # 재사용 가능한 컴포넌트
+│   ├── pages/         # 페이지 컴포넌트
+│   ├── services/      # API 서비스 (목업 포함)
+│   ├── hooks/         # 커스텀 훅
+│   └── types/         # TypeScript 타입 정의
+```
+
+#### 컴포넌트 구조
+- `TodoPage`: 메인 페이지 컴포넌트
+  - `AddTodoForm`: TODO 항목 추가 폼
+  - `TodoList`: TODO 목록 컨테이너
+    - `TodoItem`: 개별 TODO 항목
+
+#### 데이터 흐름
+1. `useTodos` 훅에서 React Query를 사용하여 TODO 데이터 관리
+2. 목업 서비스 (`mockTodoService`)에서 API 호출 시뮬레이션
+3. 컴포넌트에서 훅을 통해 데이터 접근 및 수정
+
+#### API 인터페이스
+```typescript
+interface TodoService {
+  getTodos(): Promise<Todo[]>;
+  getTodo(id: string): Promise<Todo>;
+  createTodo(input: CreateTodoInput): Promise<Todo>;
+  updateTodo(input: UpdateTodoInput): Promise<Todo>;
+  deleteTodo(id: string): Promise<void>;
+}
+```
 
 ### 2.2 백엔드
 - **기술 스택**
