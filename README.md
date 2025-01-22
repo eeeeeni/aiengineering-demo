@@ -240,8 +240,7 @@ gitGraph
 
 ## 👥 만든 사람들
 
-- AWS Korea User Group
-- AI Engineering 팀
+- AWS Korea User Group AI Engineering 소모임
 
 ## 💬 문의하기
 
