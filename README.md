@@ -28,18 +28,40 @@ AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션�
 - Amazon Cognito
 - Amazon API Gateway
 
-## 🏗️ 시스템 아키텍처
+## 🏗 시스템 아키텍처
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  GitHub     │     │   Amazon    │     │   Lambda    │
-│   Pages     │────▶│ API Gateway │────▶│  Functions  │
-└─────────────┘     └─────────────┘     └─────────────┘
-                           │                    │
-                    ┌─────────────┐     ┌─────────────┐
-                    │   Amazon    │     │   Amazon    │
-                    │   Cognito   │     │  DynamoDB   │
-                    └─────────────┘     └─────────────┘
+```mermaid
+graph TB
+    subgraph Frontend["프론트엔드 (React)"]
+        UI[사용자 인터페이스]
+        RC[React Components]
+        RQ[React Query]
+        UI --> RC
+        RC --> RQ
+    end
+
+    subgraph APIGateway["API Gateway"]
+        API[REST API]
+    end
+
+    subgraph Lambda["Lambda 함수"]
+        Handler[API Handler]
+        Service[Todo Service]
+        Handler --> Service
+    end
+
+    subgraph DynamoDB["DynamoDB"]
+        Table[Todo Table]
+    end
+
+    RQ --> API
+    API --> Handler
+    Service --> Table
+
+    style Frontend fill:#f9f,stroke:#333,stroke-width:2px
+    style APIGateway fill:#bbf,stroke:#333,stroke-width:2px
+    style Lambda fill:#bfb,stroke:#333,stroke-width:2px
+    style DynamoDB fill:#fbb,stroke:#333,stroke-width:2px
 ```
 
 ### 시스템 상호작용
@@ -109,12 +131,12 @@ npm install
 npm start
 ```
 
-## 📚 문서
+## 📚 프로젝트 문서
 
-자세한 내용은 다음 문서를 참조하세요:
-
-- [설계 문서](doc/design.md)
-- [구현 체크리스트](doc/todo.md)
+- [설계 문서](doc/design.md) - 프로젝트 아키텍처 및 기술 스택
+- [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
+- [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
+- [보안 규정 준수](doc/compliance.md) - K-ISMS 요구사항 매핑
 
 ## 🌳 브랜치 관리
 
