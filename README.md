@@ -3,7 +3,9 @@
 [![GitHub license](https://img.shields.io/github/license/awskrug/aiengineering-demo)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/awskrug/aiengineering-demo)](https://github.com/awskrug/aiengineering-demo/stargazers)
 
-AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션입니다. 이 프로젝트는 AWS Korea User Group의 AI 엔지니어링 데모로 제작되었습니다.
+AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션입니다. 이 프로젝트는 [2025년 1월 22일 있었던 AWS Korea User Group의 AI 엔지니어링 모임](https://www.meetup.com/awskrug/events/305372486/?slug=awskrug&eventId=305372486)에서 진행한 발표 내용의 일부로 라이브 코딩을 통해 제작되었습니다.
+
+> 발표 장표: [CDD가 온다](https://bit.ly/3DRyxNA)
 
 ## ✨ 주요 기능
 
