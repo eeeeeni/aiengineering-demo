@@ -42,6 +42,43 @@ AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션�
                     └─────────────┘     └─────────────┘
 ```
 
+### 시스템 상호작용
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Frontend
+    participant Cognito
+    participant API as API Gateway
+    participant Lambda
+    participant DynamoDB
+
+    %% 인증 프로세스
+    User->>Frontend: 1. 로그인 시도
+    Frontend->>Cognito: 2. 인증 요청
+    Cognito-->>Frontend: 3. JWT 토큰 반환
+    
+    %% TODO 작업 프로세스
+    User->>Frontend: 4. TODO 작성
+    Frontend->>API: 5. POST /todos (with JWT)
+    API->>Lambda: 6. 요청 전달
+    Lambda->>DynamoDB: 7. TODO 항목 저장
+    DynamoDB-->>Lambda: 8. 저장 완료
+    Lambda-->>API: 9. 응답 반환
+    API-->>Frontend: 10. 생성된 TODO 반환
+    Frontend-->>User: 11. UI 업데이트
+
+    %% TODO 조회 프로세스
+    User->>Frontend: 12. TODO 목록 요청
+    Frontend->>API: 13. GET /todos (with JWT)
+    API->>Lambda: 14. 요청 전달
+    Lambda->>DynamoDB: 15. TODO 목록 조회
+    DynamoDB-->>Lambda: 16. TODO 목록 반환
+    Lambda-->>API: 17. 응답 반환
+    API-->>Frontend: 18. TODO 목록 반환
+    Frontend-->>User: 19. 목록 표시
+```
+
 ## 🚀 시작하기
 
 ### 사전 요구사항
