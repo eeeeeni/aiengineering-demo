@@ -93,7 +93,16 @@
 - [x] GitHub Actions 워크플로우 설정
   - [x] 프론트엔드 자동 배포 파이프라인 구축
   - [x] GitHub Pages 배포 설정
-  - [ ] 환경 변수 설정 (VITE_API_ENDPOINT)
+  - [x] 저장소 public 설정
+  - [x] API 엔드포인트 시크릿 설정
+  - [ ] GitHub Pages 소스 설정 (수동)
+  - [ ] 첫 배포 확인
+
+### GitHub Pages 설정 시도
+- [x] API를 통한 직접 설정 시도
+- [x] CLI 제한사항 확인
+- [x] 대안 설정 방안 수립
+- [ ] 웹 인터페이스 설정 진행
 
 ## 현재 진행 상태
 - ✅ GitHub 저장소 생성 및 초기 설정 완료

@@ -272,3 +272,79 @@ README.md의 시스템 아키텍처를 mermaid로 바꿔줘.
 3. 환경 변수
    - API 엔드포인트 설정
    - GitHub 토큰 관리
+
+### 14.3 GitHub Pages 설정
+```
+깃헙 cli로 설정을 진행해줘.
+```
+
+1. GitHub CLI 설정 시도
+   ```bash
+   # API를 통한 Pages 설정 시도
+   gh api \
+     -H "Accept: application/vnd.github+json" \
+     -H "X-GitHub-Api-Version: 2022-11-28" \
+     repos/awskrug/aiengineering-demo/pages \
+     -f source='{"branch":"gh-pages"}'
+   ```
+   - API 베타 상태로 인한 제한사항 확인
+   - CLI를 통한 직접 설정 불가 확인
+
+2. 대안 설정 진행
+   ```bash
+   # 저장소를 public으로 설정
+   gh repo edit awskrug/aiengineering-demo --visibility public --accept-visibility-change-consequences
+   
+   # API 엔드포인트 시크릿 설정
+   gh secret set VITE_API_ENDPOINT --body "https://api.todo.awskrug.dev"
+   ```
+
+3. 수동 설정 필요 사항
+   - GitHub 웹 인터페이스에서 Settings > Pages로 이동
+   - Source를 'GitHub Actions'로 설정
+
+4. 배포 URL
+   - https://awskrug.github.io/aiengineering-demo/
+
+### 14.4 설정 시 참고 사항
+- GitHub Pages API는 아직 베타 상태
+- CLI를 통한 직접 설정은 현재 미지원
+- 저장소는 반드시 public이어야 함
+- GitHub Actions 워크플로우가 배포를 담당
+- 웹 인터페이스 설정은 최초 1회만 필요
+
+## 15. AI와의 대화
+
+### 15.1 개발자 분석 요청
+```
+지금까지 나랑 일해보니까 나는 어떤 개발자 인것 같아?
+```
+- 체계적인 접근 방식 분석
+- 품질 중심 개발 스타일 파악
+- AWS 전문성 확인
+
+### 15.2 개선점 도출
+```
+내가 더 나은 개발자가 되려면 어떻게 해야 할까 조언 해줘.
+```
+- TDD 도입 제안
+- DevOps 프로세스 강화
+- 성능 최적화 방안
+- 새로운 기술 도전 권장
+- 지식 공유 확대 제안
+
+### 15.3 리더십 평가
+```
+아마존 리더십 프시리펄에 비추어서 나의 장점과 단점 세 가지를 알려줘.
+```
+- 고객 집착, 결과 도출, 혁신과 단순화 측면의 강점
+- 최고 수준 고집, 크게 생각하기, 학습과 호기심 측면의 개선점
+
+### 15.4 피어 리뷰 문서화
+```
+니가 나에게 해 준 피어 리뷰 내용을 정리해서 문서화해서 doc폴더에 저장해줘.
+```
+- 개발자 특성 분석 정리
+- 구체적인 개선 제안
+- 리더십 원칙 기반 평가
+- 발전 방향 제시
