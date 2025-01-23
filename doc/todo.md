@@ -7,7 +7,7 @@
   - [x] 프로젝트 설정 파일 구성
 - [x] TypeScript 설정
 - [ ] ESLint, Prettier 설정
-- [ ] GitHub Actions CI/CD 파이프라인 설정
+- [x] GitHub Actions CI/CD 파이프라인 설정
 
 ## 2. 프론트엔드 (React)
 ### 2.1 초기 설정
@@ -86,6 +86,14 @@
 - [ ] 프론트엔드 에러 트래킹 설정
 - [ ] CloudWatch 로그 설정
 - [ ] 알람 설정
+
+## 진행 중인 작업
+
+### CI/CD
+- [x] GitHub Actions 워크플로우 설정
+  - [x] 프론트엔드 자동 배포 파이프라인 구축
+  - [x] GitHub Pages 배포 설정
+  - [ ] 환경 변수 설정 (VITE_API_ENDPOINT)
 
 ## 현재 진행 상태
 - ✅ GitHub 저장소 생성 및 초기 설정 완료

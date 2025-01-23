@@ -246,3 +246,29 @@ README.md의 시스템 아키텍처를 mermaid로 바꿔줘.
 - AI 도구 활용 확대
 - 자동화 수준 향상
 - 개발 프로세스 최적화
+
+## 14. CI/CD 구축
+
+### 14.1 GitHub Actions 설정
+```
+프론트를 github actions를 이용해서 frontend 업데이트가 일어날때마다 github pages에 배포하고 싶어.
+```
+- GitHub Actions 워크플로우 생성
+- 프론트엔드 자동 배포 파이프라인 구축
+- Vite 설정 업데이트
+
+### 14.2 주요 구성 요소
+1. 트리거 설정
+   - main 브랜치 푸시
+   - frontend 디렉토리 변경
+
+2. 작업 단계
+   - 코드 체크아웃
+   - Node.js 환경 설정
+   - 의존성 설치
+   - 프로덕션 빌드
+   - GitHub Pages 배포
+
+3. 환경 변수
+   - API 엔드포인트 설정
+   - GitHub 토큰 관리
