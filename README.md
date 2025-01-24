@@ -1,6 +1,6 @@
 # 🚀 AWS Serverless TODO 애플리케이션
 
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/deed.ko)
+[![License: CC BY-SA 4.0 KR](https://img.shields.io/badge/License-CC%20BY--SA%204.0%20KR-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/deed.ko)
 [![GitHub stars](https://img.shields.io/github/stars/awskrug/aiengineering-demo)](https://github.com/awskrug/aiengineering-demo/stargazers)
 [![배포 상태](https://github.com/awskrug/aiengineering-demo/actions/workflows/frontend-deploy.yml/badge.svg)](https://todo.awskrug.dev)
 
@@ -241,7 +241,7 @@ gitGraph
 
 ## 📝 라이선스
 
-이 프로젝트는 CC BY-SA 4.0 라이선스로 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+이 프로젝트는 CC BY-SA 4.0 KR 라이선스로 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 ## 👥 만든 사람들
 
