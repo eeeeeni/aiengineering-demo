@@ -9,12 +9,18 @@ export class TodoAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // DynamoDB 테이블 생성
     const todoTable = new dynamodb.Table(this, 'TodoTable', {
       partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
-      removalPolicy: cdk.RemovalPolicy.DESTROY, // 개발 환경용
-      timeToLiveAttribute: 'ttl', // 선택사항: TTL 설정
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      timeToLiveAttribute: 'ttl',
+      pointInTimeRecovery: true,
+    });
+    
+    // ✅ userId를 보조 인덱스(GSI)로 추가!
+    todoTable.addGlobalSecondaryIndex({
+      indexName: "userId-index",
+      partitionKey: { name: "userId", type: dynamodb.AttributeType.STRING },
     });
 
     // Lambda 함수를 위한 공통 환경 변수
@@ -28,7 +34,7 @@ export class TodoAppStack extends cdk.Stack {
     const todoHandler = new lambda.Function(this, 'TodoHandler', {
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda/dist')),
       environment: lambdaEnvironment,
     });
 

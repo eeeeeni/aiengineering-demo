@@ -5,7 +5,6 @@ import {
   PutCommand,
   QueryCommand,
   DeleteCommand,
-  ScanCommand,
 } from '@aws-sdk/lib-dynamodb';
 import { CreateTodoInput, Todo, UpdateTodoInput } from './types';
 
@@ -14,10 +13,15 @@ const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 const TableName = process.env.TODO_TABLE_NAME!;
 
 export const todoService = {
-  async getTodos(): Promise<Todo[]> {
+  async getTodos(userId: string): Promise<Todo[]> {
     const result = await ddbDocClient.send(
-      new ScanCommand({
+      new QueryCommand({
         TableName,
+        IndexName: "userId-index",
+        KeyConditionExpression: "userId = :userId",
+        ExpressionAttributeValues: {
+          ":userId": userId,
+        },
       })
     );
     return (result.Items || []) as Todo[];
@@ -33,10 +37,11 @@ export const todoService = {
     return (result.Item as Todo) || null;
   },
 
-  async createTodo(input: CreateTodoInput): Promise<Todo> {
+  async createTodo(userId: string, input: CreateTodoInput): Promise<Todo> {
     const now = new Date().toISOString();
     const todo: Todo = {
-      id: Date.now().toString(),
+      id: Date.now().toString(),  // ✅ 쉼표 추가 (문법 오류 해결)
+      userId,  
       title: input.title,
       description: input.description,
       completed: false,
@@ -54,9 +59,9 @@ export const todoService = {
     return todo;
   },
 
-  async updateTodo(id: string, input: UpdateTodoInput): Promise<Todo | null> {
+  async updateTodo(userId: string, id: string, input: UpdateTodoInput): Promise<Todo | null> {
     const todo = await this.getTodo(id);
-    if (!todo) return null;
+    if (!todo || todo.userId !== userId) return null;  // ✅ 사용자가 본인 TODO만 수정 가능
 
     const updatedTodo: Todo = {
       ...todo,
@@ -74,9 +79,9 @@ export const todoService = {
     return updatedTodo;
   },
 
-  async deleteTodo(id: string): Promise<boolean> {
+  async deleteTodo(userId: string, id: string): Promise<boolean> {
     const todo = await this.getTodo(id);
-    if (!todo) return false;
+    if (!todo || todo.userId !== userId) return false;  // ✅ 본인 TODO만 삭제 가능
 
     await ddbDocClient.send(
       new DeleteCommand({
@@ -86,5 +91,5 @@ export const todoService = {
     );
 
     return true;
-  },
+  }
 };

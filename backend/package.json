@@ -25,6 +25,8 @@
     "@types/aws-lambda": "^8.10.147",
     "aws-cdk-lib": "^2.176.0",
     "constructs": "^10.4.2",
-    "esbuild": "^0.24.2"
+    "esbuild": "^0.24.2",
+    "oidc-client-ts": "^3.1.0",
+    "react-oidc-context": "^3.2.0"
   }
 }
